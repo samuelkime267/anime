@@ -8,7 +8,7 @@ const MovieCard = ({ data }) => {
   return (
     <>
       <Link href={`/`} className="group">
-        <div className="w-full h-[230px] xs:h-[280px] xl:h-[320px] 2xl:h-[350px] overflow-hidden mb-4 rounded-md">
+        <div className="w-full h-[230px] xs:h-[280px] xl:h-[320px] 2xl:h-[350px] overflow-hidden mb-4 ">
           <Image
             src={data.images.jpg.large_image_url}
             alt={data.title}
@@ -18,7 +18,7 @@ const MovieCard = ({ data }) => {
           />
         </div>
         <div>
-          <h1 className="text-white group-hover:text-lemon">
+          <h1 className="text-white group-hover:text-lemon capitalize">
             {data.title.length > 20
               ? `${data.title.substring(0, 12)}...`
               : data.title}

@@ -16,7 +16,7 @@ export default function Home({ response }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section>
+      <section className="">
         <h1 className="section-title mb-2 lg:mb-4">top animes</h1>
         <div>
           <Swiper
@@ -26,7 +26,11 @@ export default function Home({ response }) {
             spaceBetween={16}
             navigation
             breakpoints={{
-              768: {
+              500: {
+                slidesPerGroup: 3,
+                slidesPerView: 3,
+              },
+              640: {
                 slidesPerGroup: 4,
                 slidesPerView: 4,
               },

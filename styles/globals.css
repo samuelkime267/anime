@@ -3,7 +3,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+:root {
+  --lemon: #00ffc8;
+  --gray: #696e79;
+  --blue: #002344;
+  --darkBlue: #00031a;
+}
 * {
   box-sizing: border-box;
   padding: 0;
@@ -14,7 +19,7 @@
   transition: 0.4s ease all;
 }
 body {
-  background: linear-gradient(60deg, #132d46, #191e29);
+  background: var(--darkBlue);
   min-height: 100vh;
 }
 section {
@@ -24,11 +29,16 @@ section {
   margin: 0 auto;
 }
 .section-title {
-  color: #01c38d;
+  color: var(--lemon);
   text-transform: capitalize;
   font-size: 1.5rem;
   font-weight: 600;
 }
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+
 @media (min-width: 768px) {
   .section-title {
     font-size: 2rem;
@@ -40,6 +50,31 @@ section {
   }
   .section-title {
     font-size: 2.5rem;
+  }
+  section:hover .swiper-button-next,
+  section:hover .swiper-button-prev {
+    visibility: visible;
+    opacity: 1;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: flex !important;
+    visibility: hidden;
+    opacity: 0;
+    background-color: var(--blue);
+    right: 10px;
+    padding: 30px;
+    color: var(--lemon) !important;
+  }
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 1.8rem !important;
+  }
+  .swiper-button-next {
+    transform: translateX(20px);
+  }
+  .swiper-button-prev {
+    transform: translateX(-20px);
   }
 }
 @media (min-width: 1280px) {
