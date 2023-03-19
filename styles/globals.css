@@ -38,6 +38,13 @@ section {
 .swiper-button-prev {
   display: none !important;
 }
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.8) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--lemon) !important;
+}
 
 @media (min-width: 768px) {
   .section-title {

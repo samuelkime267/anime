@@ -16,7 +16,7 @@ export default function Home({ animeData, mangaData, episodeData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero data={episodeData} />
-      <section className="mb-8">
+      <section className="mb-4 lg:mb-8">
         <h1 className="section-title mb-2 lg:mb-4">top animes</h1>
         <div>
           <Swiper
@@ -52,7 +52,7 @@ export default function Home({ animeData, mangaData, episodeData }) {
           </Swiper>
         </div>
       </section>
-      <section className="mb-8">
+      <section className="mb-4 lg:mb-8">
         <h1 className="section-title mb-2 lg:mb-4">top manga</h1>
         <div>
           <Swiper

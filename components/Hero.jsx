@@ -1,45 +1,45 @@
 import React from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { HeroCard } from ".";
-import { Navigation } from "swiper";
+import { Navigation, Pagination, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const Hero = ({ data }) => {
   console.log(data);
   return (
     <>
-      <section className="mb-8 h-[30rem] mt-8 ">
-        <div className="bg-white/20 border p-4 lg:p-8 rounded-md">
+      <section className="p-0 mb-8 ">
+        <div className="">
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation, Pagination, Autoplay]}
             slidesPerView={1}
             spaceBetween={16}
             navigation
-            // breakpoints={{
-            //   500: {
-            //     slidesPerGroup: 3,
-            //     slidesPerView: 3,
-            //   },
-            //   640: {
-            //     slidesPerGroup: 4,
-            //     slidesPerView: 4,
-            //   },
-            //   1024: {
-            //     slidesPerGroup: 5,
-            //     slidesPerView: 5,
-            //   },
-            //   1280: {
-            //     slidesPerGroup: 6,
-            //     slidesPerView: 6,
-            //   },
-            // }}
+            pagination={{ dynamicBullets: true, dynamicMainBullets: 5 }}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            loop
           >
-            {data.data.map((anime) => (
-              <SwiperSlide key={anime.entry.mal_id}>
-                <HeroCard data={anime} />
-              </SwiperSlide>
-            ))}
+            {data.data.map((anime) => {
+              if (anime.region_locked) return;
+              return (
+                <SwiperSlide key={anime.entry.mal_id}>
+                  <div className="relative min-h-screen h-fit md:min-h-fit">
+                    <Image
+                      src={anime.entry.images.jpg.large_image_url}
+                      alt={anime.entry.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="relative flex items-center justify-center z-10 p-4 lg:p-8 bg-darkBlue/60 backdrop-blur-sm min-h-screen md:min-h-fit">
+                      <HeroCard data={anime} />
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </div>
       </section>
