@@ -11,7 +11,7 @@ const Hero = ({ data }) => {
   console.log(data);
   return (
     <>
-      <section className="p-0 mb-8 ">
+      <section className="p-0 mb-8 mt-16">
         <div className="">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
@@ -26,7 +26,7 @@ const Hero = ({ data }) => {
               if (anime.region_locked) return;
               return (
                 <SwiperSlide key={anime.entry.mal_id}>
-                  <div className="relative min-h-screen h-fit md:min-h-fit">
+                  <div className="relative min-h-screen h-fit md:min-h-fit bg-white/10">
                     <Image
                       src={anime.entry.images.jpg.large_image_url}
                       alt={anime.entry.title}

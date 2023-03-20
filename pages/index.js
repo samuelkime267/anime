@@ -94,13 +94,13 @@ export default function Home({ animeData, mangaData, episodeData }) {
 
 export const getServerSideProps = async function () {
   const { status: animeStatus, data: animeData } = await axios(
-    `${process.env.API_URL}/top/anime?page=1&limit=20`
+    `${process.env.NEXT_PUBLIC_API_URL}/top/anime?page=1&limit=20`
   );
   const { status: mangaStatus, data: mangaData } = await axios(
-    `${process.env.API_URL}/top/manga?page=1&limit=20`
+    `${process.env.NEXT_PUBLIC_API_URL}/top/manga?page=1&limit=20`
   );
   const { status: episodeStatus, data: episodeData } = await axios(
-    `${process.env.API_URL}/watch/episodes?page=1&limit=10`
+    `${process.env.NEXT_PUBLIC_API_URL}/watch/episodes?page=1&limit=10`
   );
   return {
     props: {
