@@ -24,8 +24,12 @@ const MovieCard = ({ data }) => {
               : data.title}
           </h1>
           <div className="text-white mt-[5px] flex items-center justify-start">
-            {data.score}{" "}
-            <FontAwesomeIcon icon={faStar} className="ml-[5px] w-4" />
+            {data.score && (
+              <>
+                {data.score}{" "}
+                <FontAwesomeIcon icon={faStar} className="ml-[5px] w-4" />
+              </>
+            )}
           </div>
         </div>
       </Link>
