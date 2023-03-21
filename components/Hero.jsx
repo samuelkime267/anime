@@ -8,7 +8,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const Hero = ({ data }) => {
-  console.log(data);
   return (
     <>
       <section className="p-0 mb-8 mt-16">

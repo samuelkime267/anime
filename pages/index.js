@@ -25,7 +25,7 @@ export default function Home({ animeData, mangaData, episodeData }) {
       </Head>
       <Hero data={episodeData} />
       <section className="mb-4 lg:mb-8">
-        <h1 className="section-title mb-2 lg:mb-4">popular animes</h1>
+        <h1 className="section-title mb-2 lg:mb-4">top airing anime</h1>
         <div>
           <Swiper
             modules={[Navigation]}
@@ -101,6 +101,10 @@ export default function Home({ animeData, mangaData, episodeData }) {
         onChange={(inView) =>
           fetchSectionData(inView, [
             {
+              title: "popular anime",
+              link: `${process.env.NEXT_PUBLIC_API_URL}/top/anime?page=1&limit=20&filter=bypopularity`,
+            },
+            {
               title: "top upcoming anime",
               link: `${process.env.NEXT_PUBLIC_API_URL}/seasons/upcoming`,
             },
@@ -174,7 +178,7 @@ export default function Home({ animeData, mangaData, episodeData }) {
 
 export const getServerSideProps = async function () {
   const { status: animeStatus, data: animeData } = await axios(
-    `${process.env.NEXT_PUBLIC_API_URL}/top/anime?page=1&limit=20&filter=bypopularity`
+    `${process.env.NEXT_PUBLIC_API_URL}/top/anime?page=1&limit=20&filter=airing`
   );
   const { status: mangaStatus, data: mangaData } = await axios(
     `${process.env.NEXT_PUBLIC_API_URL}/top/manga?page=1&limit=20&filter=bypopularity`
